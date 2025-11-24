@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/*
+  Tailwind v4 theme customization
+  - Renames custom palette to "lemon" with 50–950 variants
+  - Sets the primary lemon shade (600) to #D2F659
+  - Exposes a default --color-lemon token mapped to the 600 shade
+  Usage examples:
+    - text-lemon, bg-lemon, border-lemon
+    - text-lemon-600, bg-lemon-700, hover:bg-lemon-800
+*/
+@theme {
+  /* lemon palette built around the brand color (#D2F659) */
+  --color-lemon-50:  #fbffe7;  /* ultra light tint */
+  --color-lemon-100: #f4ffd1; /* very light */
+  --color-lemon-200: #e9ff9f; /* light */
+  --color-lemon-300: #dfff6b; /* lighter */
+  --color-lemon-400: #d6ff45; /* bright */
+  --color-lemon-500: #cffa2d; /* near brand, slightly lighter */
+  /* Primary brand color */
+  --color-lemon-600: #D2F659; /* brand */
+  --color-lemon-700: #a8cc3b; /* darker */
+  --color-lemon-800: #7ea12a; /* much darker */
+  --color-lemon-900: #5c7920; /* deep */
+  --color-lemon-950: #2f400e; /* nearly blackened */
+
+  /* default lemon token (used by classes like text-lemon, bg-lemon, etc.) */
+  --color-lemon: var(--color-lemon-600);
+}
+
+/*
+  Custom utility classes
+  - .page-padding → horizontal padding of 3rem (logical, RTL‑friendly)
+*/
+.page-padding {
+  @apply px-8
+}
