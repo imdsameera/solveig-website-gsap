@@ -1,6 +1,8 @@
-import {useEffect, useRef} from 'react';
-import gsap from 'gsap';
-import {useGSAP} from '@gsap/react';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { TextReveal01 } from "../../../components/animations";
+import { ReactLenis } from "lenis/react";
 
 const Hero = () => {
   const marqueeItems = [
@@ -13,14 +15,14 @@ const Hero = () => {
   const marqueeTrackRef = useRef(null);
   const heroTextRef = useRef(null);
 
-  useGSAP(()=>{
-      gsap.from(heroTextRef.current,{
-          yPercent: 100,
-          opacity: 0,
-          duration: 1,
-          ease: 'power4.in'
-      })
-  })
+  useGSAP(() => {
+    gsap.from(heroTextRef.current, {
+      yPercent: 100,
+      opacity: 0,
+      duration: 1,
+      ease: "power4.in",
+    });
+  });
 
   // Run a GSAP marquee animation that slides content from right to left infinitely
   useEffect(() => {
@@ -36,10 +38,10 @@ const Hero = () => {
       { x: 0 },
       {
         x: -loopWidth,
-        ease: 'none',
+        ease: "none",
         duration: 15, // adjust to control speed (higher = slower)
         repeat: -1,
-      }
+      },
     );
 
     // Clean up on unmount
@@ -49,44 +51,54 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="w-full bg-white page-padding min-h-screen">
-      <div>
-        <img ref={heroTextRef} src="/images/heroText.png" alt="Hero Text" />
-        <h1
-          className="font-display font-semibold text-xl
+    <ReactLenis root>
+      <section className="w-full bg-white page-padding min-h-screen">
+        <div>
+          <img ref={heroTextRef} src="/images/heroText.png" alt="Hero Text" />
+          <TextReveal01 delay={0.5}>
+            <h1
+              className="font-display font-semibold text-xl
 			 sm:text-3xl md:text-4xl uppercase"
-        >
-          Brand designer from berlin
-        </h1>
-      </div>
-      <div className='w-full pt-8'>
-        {/* Marquee: container with overflow hidden and an inner track that slides left */}
-        <section ref={marqueeContainerRef} className="relative w-full overflow-hidden bg-lemon-600 py-2">
-          <div
-            ref={marqueeTrackRef}
-            className="flex items-center gap-4 whitespace-nowrap"
-            style={{ willChange: 'transform' }}
+            >
+              Brand designer from berlin
+            </h1>
+          </TextReveal01>
+        </div>
+        <div className="w-full pt-8">
+          {/* Marquee: container with overflow hidden and an inner track that slides left */}
+          <section
+            ref={marqueeContainerRef}
+            className="relative w-full overflow-hidden bg-lemon-600 py-2"
           >
-            {/* Duplicate content twice for a seamless loop */}
-            {[...Array(2)].map((_, copyIdx) => (
-              <div key={copyIdx} className="flex items-center gap-4">
-                {marqueeItems.map((item, i) => (
-                  <div key={`${copyIdx}-${i}`} className='uppercase text-sm tracking-widest font-semibold'>
-                    {item}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </section>
+            <div
+              ref={marqueeTrackRef}
+              className="flex items-center gap-4 whitespace-nowrap"
+              style={{ willChange: "transform" }}
+            >
+              {/* Duplicate content twice for a seamless loop */}
+              {[...Array(2)].map((_, copyIdx) => (
+                <div key={copyIdx} className="flex items-center gap-4">
+                  {marqueeItems.map((item, i) => (
+                    <div
+                      key={`${copyIdx}-${i}`}
+                      className="uppercase text-sm tracking-widest font-semibold"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </section>
 
-      {/*Hero Image*/}
+          {/*Hero Image*/}
           <div className="hero-img-wrapper">
-              <img src="/images/home-hero.webp" alt="home hero"/>
+            <img src="/images/home-hero.webp" alt="home hero" />
           </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </ReactLenis>
   );
-}
+};
 
 export default Hero;
