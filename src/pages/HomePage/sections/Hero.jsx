@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { TextReveal01 } from "../../../components/animations";
+import { TextReveal01, ImageReveal01 } from "../../../components/animations";
 import { ReactLenis } from "lenis/react";
 
 const Hero = () => {
@@ -16,12 +16,12 @@ const Hero = () => {
   const heroTextRef = useRef(null);
 
   useGSAP(() => {
-    gsap.from(heroTextRef.current, {
-      yPercent: 100,
-      opacity: 0,
-      duration: 1,
-      ease: "power4.in",
-    });
+    // gsap.from(heroTextRef.current, {
+    //   yPercent: 100,
+    //   opacity: 0,
+    //   duration: 1,
+    //   ease: "power4.in",
+    // });
   });
 
   // Run a GSAP marquee animation that slides content from right to left infinitely
@@ -54,7 +54,9 @@ const Hero = () => {
     <ReactLenis root>
       <section className="w-full bg-white page-padding min-h-screen">
         <div>
-          <img ref={heroTextRef} src="/images/heroText.png" alt="Hero Text" />
+          <ImageReveal01 delay={0.5}>
+            <img ref={heroTextRef} src="/images/heroText.png" alt="Hero Text" />
+          </ImageReveal01>
           <TextReveal01 delay={0.5}>
             <h1
               className="font-display font-semibold text-xl
