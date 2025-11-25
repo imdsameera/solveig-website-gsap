@@ -1,12 +1,19 @@
-import {Navbar} from '../../components';
-import {Hero} from './sections';
+import { Navbar } from "../../components";
+import { Hero, Stats } from "./sections";
+import { ReactLenis } from "lenis/react";
 
 const HomePage = () => {
-	return (
-		<div className='bg-gray-200 px-8 pt-8 min-h-screen w-full overflow-x-hidden'>
-			<Navbar/>
-			<Hero/>
-		</div>
-	);
+  return (
+    <ReactLenis root>
+      <div className="bg-gray-200 px-8 pt-8 min-h-screen w-full overflow-x-hidden font-display">
+        <Navbar />
+        <Hero />
+        <Stats />
+        <section className="min-h-screen"></section>
+        <section className="min-h-screen"></section>
+        <section className="min-h-screen"></section>
+      </div>
+    </ReactLenis>
+  );
 };
 export default HomePage;

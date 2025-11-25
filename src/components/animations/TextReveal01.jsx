@@ -65,6 +65,7 @@ const TextReveal01 = ({children, animateOnScroll = true, delay = 0}) => {
 				trigger: containerRef.current,
 				start: 'top 75%',
 				once: true,
+				markers: false
 			}});
 		}else {
 			gsap.to(lines.current, animationProps)

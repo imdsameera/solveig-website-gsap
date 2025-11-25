@@ -63,14 +63,16 @@ const Navbar = () => {
   return (
     <div className="relative w-full flex flex-col justify-center items-center bg-white page-padding">
       <div className="flex items-center justify-between w-full  py-6">
-        <img src="/solveig_logo.svg" alt="" className="cursor-pointer" />
+        <a href="/">
+          <img src="/solveig_logo.svg" alt="" className="cursor-pointer" />
+        </a>
 
         {/*  Desktop Nav*/}
         <div
           id="desktop-nav"
           className="hidden sm:flex items-center justify-center gap-8 font-medium"
         >
-          <nav className='flex items-center justify-center gap-6'>
+          <nav className="flex items-center justify-center gap-6">
             {navLinks.map((item, i) => (
               <a
                 key={i}
@@ -107,7 +109,7 @@ const Navbar = () => {
       {/*  Mobile Drawer*/}
       <div
         ref={drawerRef}
-        className="absolute top-full w-full px-8 sm:hidden"
+        className="absolute top-full w-full px-8 sm:hidden z-999"
       >
         <div
           id="mobile-drawer"
