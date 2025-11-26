@@ -9,3 +9,11 @@ export const stats = [
     { id: "followers", title: "Followers", value: "90K" },
     { id: "happyClients", title: "Happy Clients", value: "100%" },
 ]
+
+export const logos = [
+    {id: 'logo1', path: 'public/assets/logos/logo 1.svg'},
+    {id: 'logo2', path: 'public/assets/logos/logo 2.svg'},
+    {id: 'logo3', path: 'public/assets/logos/logo 3.svg'},
+    {id: 'logo4', path: 'public/assets/logos/logo 4.svg'},
+    {id: 'logo5', path: 'public/assets/logos/logo 5.svg'},
+]
