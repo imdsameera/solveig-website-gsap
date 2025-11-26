@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import { services } from "../../../constants";
 import { TextReveal01 } from "../../../components/animations";
 import gsap from "gsap";
@@ -27,7 +27,7 @@ const Services = () => {
       <div className="container sm:mx-10 py-25 w-full">
         <div className="flex flex-col md:flex-row justify-between gap-10">
           <div className="col-left w-full flex flex-col justify-between gap-16">
-            <div className={`sticky top-[2rem] z-900 mb-35`}>
+            <div className={`sticky top-8 z-900 mb-35`}>
               <div className="mb-3">
                 <img ref={starRef} src="/icons/icon-star.svg" alt="star icon"/>
               </div>
