@@ -5,7 +5,7 @@ import {useGSAP} from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-const TextReveal01 = ({children, animateOnScroll = true, delay = 0}) => {
+const TextReveal01 = ({children, animateOnScroll = true, delay = 0, duration = 1, startFrom = 75}) => {
 	const containerRef = useRef(null);
 	const elementRef = useRef([]);
 	const splitRef = useRef([]);
@@ -53,7 +53,7 @@ const TextReveal01 = ({children, animateOnScroll = true, delay = 0}) => {
 
 		const animationProps = {
 			y: '0%',
-			duration: 1,
+			duration: duration,
 			stagger: 0.1,
 			ease: 'power4.out',
 			delay: delay
@@ -63,7 +63,7 @@ const TextReveal01 = ({children, animateOnScroll = true, delay = 0}) => {
 			gsap.to(lines.current, {...animationProps,
 			scrollTrigger:{
 				trigger: containerRef.current,
-				start: 'top 75%',
+				start: `top ${startFrom}%`,
 				once: true,
 				markers: false
 			}});
