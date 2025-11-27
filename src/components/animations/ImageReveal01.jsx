@@ -1,13 +1,20 @@
-import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import { useGSAP } from '@gsap/react';
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 // as the TextReveal01, this component reveals images inside a wrapper using GSAP
 // API mirrors TextReveal01: animateOnScroll (default true) and delay (seconds)
-const ImageReveal01 = ({ children, animateOnScroll = true, delay = 0, duration = 1, stagger = 0.12 }) => {
+const ImageReveal01 = ({
+  children,
+  animateOnScroll = true,
+  delay = 0,
+  duration = 1,
+  stagger = 0.12,
+  startFrom = 75,
+}) => {
   const containerRef = useRef(null);
   const imagesRef = useRef([]);
 
@@ -17,7 +24,7 @@ const ImageReveal01 = ({ children, animateOnScroll = true, delay = 0, duration =
       if (!container) return;
 
       // Collect all images within the wrapper
-      const imgs = Array.from(container.querySelectorAll('img'));
+      const imgs = Array.from(container.querySelectorAll("img"));
       imagesRef.current = imgs;
 
       if (imgs.length === 0) return;
@@ -25,15 +32,16 @@ const ImageReveal01 = ({ children, animateOnScroll = true, delay = 0, duration =
       // Ensure each image is inside an overflow-hidden wrapper so it reveals from a mask
       imgs.forEach((img) => {
         const parent = img.parentElement;
-        const alreadyWrapped = parent && parent.hasAttribute('data-image-mask-wrapper');
+        const alreadyWrapped =
+          parent && parent.hasAttribute("data-image-mask-wrapper");
         if (!alreadyWrapped) {
-          const wrapper = document.createElement('div');
-          wrapper.setAttribute('data-image-mask-wrapper', 'true');
+          const wrapper = document.createElement("div");
+          wrapper.setAttribute("data-image-mask-wrapper", "true");
           Object.assign(wrapper.style, {
-            overflow: 'hidden',
-            display: 'block',
-            position: 'relative',
-            lineHeight: '0',
+            overflow: "hidden",
+            display: "block",
+            position: "relative",
+            lineHeight: "0",
           });
           parent.insertBefore(wrapper, img);
           wrapper.appendChild(img);
@@ -43,17 +51,17 @@ const ImageReveal01 = ({ children, animateOnScroll = true, delay = 0, duration =
       // Prepare initial state: translate upward from bottom (inside mask), no opacity/scale
       gsap.set(imgs, {
         yPercent: 100,
-        willChange: 'transform',
-        display: 'block', // avoid inline-img baseline gaps
+        willChange: "transform",
+        display: "block", // avoid inline-img baseline gaps
       });
 
       const animationProps = {
         yPercent: 0,
-        ease: 'power4.out',
+        ease: "power4.out",
         duration,
         stagger,
         delay,
-        clearProps: 'willChange',
+        clearProps: "willChange",
       };
 
       if (animateOnScroll) {
@@ -61,7 +69,7 @@ const ImageReveal01 = ({ children, animateOnScroll = true, delay = 0, duration =
           ...animationProps,
           scrollTrigger: {
             trigger: container,
-            start: 'top 80%',
+            start: `top ${startFrom}%`,
             once: true,
           },
         });
@@ -73,12 +81,12 @@ const ImageReveal01 = ({ children, animateOnScroll = true, delay = 0, duration =
       return () => {
         imgs.forEach((img) => {
           // remove transform styles that we set
-          img.style.transform = '';
-          img.style.willChange = '';
-          img.style.display = '';
+          img.style.transform = "";
+          img.style.willChange = "";
+          img.style.display = "";
 
           const parent = img.parentElement;
-          if (parent && parent.hasAttribute('data-image-mask-wrapper')) {
+          if (parent && parent.hasAttribute("data-image-mask-wrapper")) {
             const grand = parent.parentElement;
             if (grand) {
               grand.insertBefore(img, parent);
@@ -88,7 +96,7 @@ const ImageReveal01 = ({ children, animateOnScroll = true, delay = 0, duration =
         });
       };
     },
-    { scope: containerRef, dependencies: [animateOnScroll, delay, stagger] }
+    { scope: containerRef, dependencies: [animateOnScroll, delay, stagger] },
   );
 
   return (
