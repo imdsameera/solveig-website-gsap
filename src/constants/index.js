@@ -38,3 +38,20 @@ export const services = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Massa tempor nec feugiat nisl.",
   },
 ];
+
+export const projects = [
+  {
+    id: "project1",
+    title: "Vision Branding",
+    category: "Logo design",
+    thumbnail: "/images/project01.webp",
+    link: '/'
+  },
+  {
+    id: "project2",
+    title: "Brand Studio",
+    category: "Branding",
+    thumbnail: "/images/project02.webp",
+    link: '/'
+  }
+]
