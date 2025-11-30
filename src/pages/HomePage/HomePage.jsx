@@ -1,4 +1,4 @@
-import { Navbar } from "../../components";
+import {Footer, Navbar} from '../../components';
 import {Clients, Contact, Hero, Services, Stats, Work} from './sections';
 import { ReactLenis } from "lenis/react";
 
@@ -13,8 +13,7 @@ const HomePage = () => {
         <Services/>
         <Work/>
         <Contact/>
-        <section className="min-h-screen"></section>
-        <section className="min-h-screen"></section>
+        <Footer/>
       </div>
     </ReactLenis>
   );
