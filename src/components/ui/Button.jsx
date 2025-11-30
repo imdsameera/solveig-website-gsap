@@ -1,4 +1,4 @@
-export const Button = ({ onClick, children, className = "", variant = 'primary', size ='lg' }) => {
+export const Button = ({ onClick, children, className = "", variant = 'primary', size ='md' }) => {
   const handleClick = (e) => {
     onClick(e);
   };
@@ -17,20 +17,19 @@ export const Button = ({ onClick, children, className = "", variant = 'primary',
   }
 
   const btnSize = {
-    sm: 'text-sm',
-    md: 'text-md',
-    lg: 'text-lg',
+    sm: 'text-sm px-3 py-2',
+    md: 'text-md px-4 py-3',
+    lg: 'text-lg px-6 py-4',
   }
 
   return (
     <button
-      className={`w-full flex justify-center sm:justify-between items-center gap-2 px-6 py-4 cursor-pointer group outline-2  -outline-offset-2 ${className} ${btnVariant[variant]} ${btnSize[size]} `}
+      className={`w-full uppercase leading-loose tracking-wider font-medium flex justify-center sm:justify-between items-center gap-2 cursor-pointer group outline-2  -outline-offset-2 ${className} ${btnVariant[variant]} ${btnSize[size]} `}
       onClick={handleClick}
     >
       <div className={`w-6 group-hover:w-0 h-[1.5px] bg-${variant === 'secondary' ? 'white' : 'black'} transition-all duration-300 ease-in-out`}/>
       <div
         id="btn-text"
-        className="uppercase leading-loose tracking-wider text-sm"
       >
         {children}
       </div>
