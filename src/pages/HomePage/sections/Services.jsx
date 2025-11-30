@@ -2,7 +2,10 @@ import React, { useRef } from "react";
 import { services } from "../../../constants";
 import { TextReveal01 } from "../../../components/animations";
 import gsap from "gsap";
+import {ScrollTrigger} from 'gsap/all';
 import {useGSAP} from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
   const starRef = useRef(null);
