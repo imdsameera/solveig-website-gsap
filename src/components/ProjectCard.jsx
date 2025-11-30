@@ -1,7 +1,6 @@
 import React from "react";
 
 const ProjectCard = ({ project }) => {
-  console.log(project?.title);
 
   return (
     <div className="card flex flex-col w-full relative">
