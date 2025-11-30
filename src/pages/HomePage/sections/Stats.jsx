@@ -9,11 +9,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Stats = () => {
   return (
-    <section className="section-home-stats page-padding bg-white py-20">
-      <div className="container grid grid-cols-2 lg:grid-cols-4 gap-16  px-0 sm:px-10">
-        {stats.map((stat) => (
-          <StatCard key={stat.id} stat={stat} />
-        ))}
+    <section className="section-home-stats bg-white py-20">
+      <div className="page-padding w-full">
+        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-16">
+          {stats.map((stat) => (
+            <StatCard key={stat.id} stat={stat} />
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -47,7 +49,7 @@ const StatCard = ({ stat }) => {
         <p className="text-sm uppercase font-semibold tracking-wider mb-2">
           {stat.title}
         </p>
-        <h2 className="text-5xl sm:text-6xl font-bold">
+        <h2 className="text-4xl xs:text-5xl sm:text-6xl font-bold">
           {mainText}
           <span className="text-lemon">{lastChar}</span>
         </h2>

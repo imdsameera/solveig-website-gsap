@@ -5,7 +5,7 @@ import { logos } from "../../../constants";
 const Clients = () => {
   return (
     <section className="page-padding bg-white">
-      <div className='sm:mx-10'>
+      <div >
         <div className="home-clients-grid grid grid-cols-1 sm:grid-cols-4 gap-8 sm:gap-16">
           <div className="w-full flex items-center justify-start gap-2 col-span-1">
             <div className="w-16 h-px bg-black" />
