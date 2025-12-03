@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 // The component accepts the ref to its container, content, and optional styles.
-export const MagneticButton = ({
+export const MagnetButton = ({
   children,
   href = "#",
   primaryColor = 'blue-500',

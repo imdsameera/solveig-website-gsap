@@ -1,4 +1,4 @@
-import {MagneticButton} from './animations/index.js';
+import {MagnetButton} from './animations/index.js';
 
 const ProjectCard = ({ project }) => {
 
@@ -7,7 +7,7 @@ const ProjectCard = ({ project }) => {
     <div className="card flex flex-col w-full relative">
       <div className="img-box justify-center mb-6">
         <div className="relative w-full h-full flex items-center justify-center">
-          <MagneticButton primaryColor='lemon-600' textColor='black'>view</MagneticButton>
+          <MagnetButton primaryColor='lemon-600' textColor='black'>view</MagnetButton>
           <img
             src={project.thumbnail}
             alt={project.title}
