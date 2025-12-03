@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-const InfiniteMarquee = ({
+export const InfiniteMarquee = ({
   children,
   direction = "left", // "left" or "right"
   duration = 15, // seconds for one full loop
@@ -86,5 +86,3 @@ const InfiniteMarquee = ({
     </div>
   );
 };
-
-export default InfiniteMarquee;

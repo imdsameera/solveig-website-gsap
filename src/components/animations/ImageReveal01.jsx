@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // as the TextReveal01, this component reveals images inside a wrapper using GSAP
 // API mirrors TextReveal01: animateOnScroll (default true) and delay (seconds)
-const ImageReveal01 = ({
+export const ImageReveal01 = ({
   children,
   animateOnScroll = true,
   delay = 0,
@@ -105,5 +105,3 @@ const ImageReveal01 = ({
     </div>
   );
 };
-
-export default ImageReveal01;

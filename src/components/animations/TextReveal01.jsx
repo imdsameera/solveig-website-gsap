@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-const TextReveal01 = ({
+export const TextReveal01 = ({
   children,
   animateOnScroll = true,
   delay = 0,
@@ -102,5 +102,3 @@ const TextReveal01 = ({
     </div>
   );
 };
-
-export default TextReveal01;

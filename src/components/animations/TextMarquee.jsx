@@ -5,7 +5,7 @@ import {Observer} from 'gsap/all';
 
 gsap.registerPlugin(Observer);
 
-const TextMarquee = ({
+export const TextMarquee = ({
 	                 items =[],
 	                 className = 'text-white bg-black',
 	                 icon = 'mdi:star-four-points',
@@ -133,4 +133,3 @@ const TextMarquee = ({
 		</div>
 	);
 };
-export default TextMarquee;
