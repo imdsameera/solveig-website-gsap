@@ -2,28 +2,29 @@ import React, { useRef } from "react";
 import { services } from "../../../constants";
 import { TextReveal01 } from "../../../components/animations";
 import gsap from "gsap";
-import {ScrollTrigger} from 'gsap/all';
-import {useGSAP} from '@gsap/react';
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
   const starRef = useRef(null);
+  const MagneticContainerRef = useRef(null);
 
-  useGSAP(()=>{
-    gsap.set(starRef.current, {scale: 0})
+  useGSAP(() => {
+    gsap.set(starRef.current, { scale: 0 });
     gsap.to(starRef.current, {
       scale: 1,
       duration: 1,
-      ease: 'power1.Out',
-      scrollTrigger:{
+      ease: "power1.Out",
+      scrollTrigger: {
         trigger: starRef.current,
-        start: 'top 95%',
+        start: "top 95%",
         once: true,
-        markers: false
-      }
-    })
-  })
+        markers: false,
+      },
+    });
+  });
 
   return (
     <section className="section-home-services z-900 sm:flex justify-center bg-white">
@@ -32,7 +33,7 @@ const Services = () => {
           <div className="col-left sm:w-full flex flex-col sm:justify-between gap-16">
             <div className={`md:sticky top-8 z-900 md:mb-35`}>
               <div className="mb-3">
-                <img ref={starRef} src="/icons/icon-star.svg" alt="star icon"/>
+                <img ref={starRef} src="/icons/icon-star.svg" alt="star icon" />
               </div>
               <div>
                 <h2 className="text-6xl font-semibold uppercase">

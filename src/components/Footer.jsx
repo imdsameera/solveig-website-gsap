@@ -28,7 +28,7 @@ const Footer = () => {
                       </a>
                     ))}
                     <div className="btn">
-                      <Button className="">more templates</Button>
+                      <Button size='sm'>more templates</Button>
                     </div>
                   </div>
                 </div>
