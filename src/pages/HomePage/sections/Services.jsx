@@ -65,7 +65,7 @@ const Services = () => {
               {services.map((service, i) => (
                 <div
                   key={service.id}
-                  className={`w-full border-t-[2rem] border-white sticky top-0 ${i < 1 && "-mt-8"} ${i > services.length - 1 && "mb-8"} z-900`}
+                  className={`w-full border-t-[2rem] border-white sticky top-0 ${i < 1 && "-mt-8"} ${i > services.length - 1 && "mb-8"} z-10`}
                 >
                   <div className="service-card w-full bg-gray-100 p-8">
                     <h2 className="uppercase text-4xl font-medium flex items-center gap-3 mb-3">

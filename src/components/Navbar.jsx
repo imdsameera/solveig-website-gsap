@@ -118,13 +118,13 @@ const Navbar = () => {
         >
           <nav className="flex flex-col gap-4">
             {navLinks.map((item, i) => (
-              <a
+              <Link
                 key={i}
-                href={item.href}
+                to={item.href}
                 className="text-white hover:text-white/60 text-sm font-medium uppercase tracking-wider group"
               >
                 {item.title}{" "}
-              </a>
+              </Link>
             ))}
           </nav>
           <Button>Get free template</Button>
