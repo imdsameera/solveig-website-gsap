@@ -3,9 +3,11 @@ import { Button } from "./ui";
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { useScrollPosition } from "../hooks";
 
 const Navbar = () => {
+  const containerRef = useRef(null);
   const topLineRef = useRef(null);
   const middleLineRef = useRef(null);
   const bottomLineRef = useRef(null);
@@ -13,6 +15,19 @@ const Navbar = () => {
   const iconTl = useRef(null);
   const drawerRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
+
+  const scrollPosition = useScrollPosition();
+  // Define a scroll threshold in pixels
+  const scrollThreshold = 10;
+
+  const baseClasses =
+    "w-full flex flex-col justify-center items-center page-padding mt-8 sticky top-0 z-999";
+
+  // Conditionally apply classes: solid white initially, glass morphism after scrolling past the threshold
+  const dynamicClasses =
+    scrollPosition > scrollThreshold
+      ? "bg-white/30 backdrop-blur-lg" // Glass morphism styles
+      : "bg-white"; // Solid white background
 
   useGSAP(() => {
     tl.current = gsap.timeline({ paused: true }).from(drawerRef.current, {
@@ -48,6 +63,12 @@ const Navbar = () => {
         },
         "<",
       );
+
+    //Navbar transparent on scroll
+    gsap.to(containerRef.current, {
+      duration: 0.3,
+      classNames: "bg-background/55 backdrop-blur-md",
+    });
   }, []);
 
   const toggleMenu = () => {
@@ -62,7 +83,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center bg-white page-padding mt-8 sticky top-0 z-999" >
+    <div
+      ref={containerRef}
+      className={`${baseClasses} ${dynamicClasses}`}
+    >
       <div className="flex items-center justify-between w-full  py-6">
         <Link to="/">
           <img src="/solveig_logo.svg" alt="" className="cursor-pointer" />
