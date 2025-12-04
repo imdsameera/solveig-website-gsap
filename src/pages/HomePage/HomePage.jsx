@@ -5,8 +5,7 @@ import { ReactLenis } from "lenis/react";
 const HomePage = () => {
   return (
     <ReactLenis root>
-      <div className="bg-gray-200 px-8 pt-8 min-h-screen w-full font-display">
-        <Navbar />
+      <div className="min-h-screen w-full font-display">
         <Hero />
         <Stats />
         <Clients/>

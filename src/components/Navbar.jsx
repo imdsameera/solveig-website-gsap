@@ -3,6 +3,7 @@ import { Button } from "./ui";
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import {Link} from 'react-router-dom';
 
 const Navbar = () => {
   const topLineRef = useRef(null);
@@ -61,11 +62,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="relative w-full flex flex-col justify-center items-center bg-white page-padding">
+    <div className="w-full flex flex-col justify-center items-center bg-white page-padding mt-8 sticky top-0 z-999" >
       <div className="flex items-center justify-between w-full  py-6">
-        <a href="/">
+        <Link to="/">
           <img src="/solveig_logo.svg" alt="" className="cursor-pointer" />
-        </a>
+        </Link>
 
         {/*  Desktop Nav*/}
         <div
@@ -74,14 +75,14 @@ const Navbar = () => {
         >
           <nav className="flex items-center justify-center gap-6">
             {navLinks.map((item, i) => (
-              <a
+              <Link
                 key={i}
-                href={item.href}
+                to={item.path}
                 className="text-black text-sm font-medium uppercase tracking-wider group"
               >
                 {item.title}{" "}
                 <div className="w-0 group-hover:w-full h-[1.5px] bg-black transition-all ease-in-out duration-300" />
-              </a>
+              </Link>
             ))}
           </nav>
           <Button>Get free template</Button>

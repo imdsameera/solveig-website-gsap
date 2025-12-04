@@ -1,6 +1,6 @@
 export const navLinks = [
-  { id: "work", title: "Work", href: "/work" },
-  { id: "contact", title: "Contact", href: "/contact" },
+  { id: "work", title: "Work", path: "/work" },
+  { id: "contact", title: "Contact", path: "/contact" },
 ];
 
 export const stats = [

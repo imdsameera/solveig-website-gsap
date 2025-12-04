@@ -42,7 +42,16 @@
   @apply px-8
 }
 
+.nav-margin {
+  @apply mx-8 mt-8
+}
+
 /* Apply Inter globally */
 html, body {
   @apply font-sans;
 }
+
+body {
+  @apply bg-gray-200 px-8;
+}
+
