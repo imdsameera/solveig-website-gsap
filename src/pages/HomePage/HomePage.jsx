@@ -1,5 +1,5 @@
-import {Footer, Navbar, SpinningBadge} from '../../components';
-import {Clients, Contact, Hero, Services, Stats, Work} from './sections';
+import {Footer, CallToAction, SpinningBadge} from '../../components';
+import {Clients, Hero, Services, Stats, Work} from './sections';
 import { ReactLenis } from "lenis/react";
 
 const HomePage = () => {
@@ -12,7 +12,7 @@ const HomePage = () => {
         <Clients/>
         <Services/>
         <Work/>
-        <Contact/>
+        <CallToAction/>
         <Footer/>
       </div>
     </ReactLenis>

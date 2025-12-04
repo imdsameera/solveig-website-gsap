@@ -1,6 +1,6 @@
 export const navLinks = [
   { id: "work", title: "Work", path: "/work" },
-  { id: "contact", title: "Contact", path: "/contact" },
+  { id: "contact", title: "CallToAction", path: "/contact" },
 ];
 
 export const stats = [
@@ -52,6 +52,20 @@ export const projects = [
     title: "Brand Studio",
     category: "Branding",
     thumbnail: "/images/project02.webp",
+    link: '/'
+  },
+  {
+    id: "project3",
+    title: "Logo Agency",
+    category: "Social Media",
+    thumbnail: "/images/project03.webp",
+    link: '/'
+  },
+  {
+    id: "project4",
+    title: "Design Agency",
+    category: "Branding",
+    thumbnail: "/images/project04.webp",
     link: '/'
   }
 ]

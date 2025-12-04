@@ -1,5 +1,5 @@
-import { InfiniteMarquee, TextReveal01 } from "../../../components/animations";
-import { Button } from "../../../components/ui";
+import { InfiniteMarquee, TextReveal01 } from "./animations";
+import { Button } from './ui';
 import {useRef} from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/all";
@@ -7,7 +7,7 @@ import {useGSAP} from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Contact = () => {
+const CallToAction = () => {
   const items = Array.from({ length: 6 }, () => `Let's work together`);
   const starRef = useRef(null);
 
@@ -56,10 +56,10 @@ const Contact = () => {
           </TextReveal01>
         </div>
         <div className='w-full sm:w-auto'>
-          <Button href="/contact" className='w-full'>Contact Me</Button>
+          <Button href="/contact" className='w-full'>Get in touch</Button>
         </div>
       </div>
     </section>
   );
 };
-export default Contact;
+export default CallToAction;
