@@ -144,8 +144,8 @@ const Navbar = () => {
             {navLinks.map((item, i) => (
               <Link
                 key={i}
-                to={item.href}
-                className="text-white hover:text-white/60 text-sm font-medium uppercase tracking-wider group"
+                to={item.path}
+                className="text-white hover:text-white/60 text-sm font-medium uppercase tracking-wider group py-4"
               >
                 {item.title}{" "}
               </Link>

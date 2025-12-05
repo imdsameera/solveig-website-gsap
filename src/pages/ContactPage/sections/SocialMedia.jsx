@@ -1,5 +1,4 @@
 import React from "react";
-import { TextReveal01 } from "../../../components/animations/index.js";
 import {Link} from 'react-router-dom';
 
 const SocialMedia = () => {
