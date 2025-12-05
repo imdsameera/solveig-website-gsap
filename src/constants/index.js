@@ -1,6 +1,6 @@
 export const navLinks = [
   { id: "work", title: "Work", path: "/work" },
-  { id: "contact", title: "CallToAction", path: "/contact" },
+  { id: "contact", title: "Contact", path: "/contact" },
 ];
 
 export const stats = [
