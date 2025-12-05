@@ -82,6 +82,12 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeDrawer = () =>{
+    tl.current.reverse();
+    iconTl.current.reverse();
+    setIsOpen(!isOpen);
+  }
+
   return (
     <div
       ref={containerRef}
@@ -103,6 +109,7 @@ const Navbar = () => {
                 key={i}
                 to={item.path}
                 className="text-black text-sm font-medium uppercase tracking-wider group"
+                onClick={()=> closeDrawer()}
               >
                 {item.title}{" "}
                 <div className="w-0 group-hover:w-full h-[1.5px] bg-black transition-all ease-in-out duration-300" />
@@ -146,6 +153,7 @@ const Navbar = () => {
                 key={i}
                 to={item.path}
                 className="text-white hover:text-white/60 text-sm font-medium uppercase tracking-wider group py-4"
+                onClick={()=> closeDrawer()}
               >
                 {item.title}{" "}
               </Link>
